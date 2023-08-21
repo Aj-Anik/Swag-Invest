@@ -69,16 +69,16 @@
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
         function submitForm() {
-            // Gather form data
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                username: document.getElementById('username').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value,
-                confirmpassword: document.getElementById('confirmpassword').value,
-                // Add other form fields
-            };
+    // Gather form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        confirmPassword: document.getElementById('confirmPassword').value, // Fix the ID here
+        // Add other form fields
+    };
 
             // Initialize Google Sheets API
             gapi.load('client', initClient);
