@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="img/pngiconlogo.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registration Page</title>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="registration-form">
+            <h2>Register</h2>
+            <form onsubmit="submitForm(); return false;">
+                <div class="input-group">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name*" required pattern="^[a-zA-Z]+$">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name*" required pattern="^[a-zA-Z]+$">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username (e.g. space and symbol not granted)" required pattern="^[a-zA-Z0-9]+$">
+                </div>
+                <div class="input-group">
+                    <select id="country" name="country" style="background-color: rgb(255, 255, 255);color: rgb(109, 109, 109);" required>
+                        <option value="" disabled selected>Select Country</option>
+                        <option value="Argentina" disabled>Argentina</option>
+                        <option value="Australia" disabled>Australia</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Brazil" disabled>Brazil</option>
+                        <option value="Canada" disabled>Canada</option>
+                        <option value="China" disabled>China</option>
+                        <option value="Egypt" disabled>Egypt</option>
+                        <option value="France" disabled>France</option>
+                        <option value="Germany" disabled>Germany</option>
+                        <option value="India" disabled>India</option>
+                        <option value="Indonesia" disabled>Indonesia</option>
+                        <option value="Iran" disabled>Iran</option>
+                        <option value="Italy" disabled>Italy</option>
+                        <option value="Japan" disabled>Japan</option>
+                        <option value="Mexico" disabled>Mexico</option>
+                        <option value="Nigeria" disabled>Nigeria</option>
+                        <option value="Pakistan" disabled>Pakistan</option>
+                        <option value="Russia" disabled>Russia</option>
+                        <option value="Saudi_Arabia" disabled>Saudi Arabia</option>
+                        <option value="South_Africa" disabled>South Africa</option>
+                        <option value="South_Korea" disabled>South Korea</option>
+                        <option value="Spain" disabled>Spain</option>
+                        <option value="Turkey" disabled>Turkey</option>
+                        <option value="United_Kingdom" disabled>United Kingdom</option>
+                        <option value="United_States" disabled>United States</option>
+                        <option value="Venezuela" disabled>Venezuela</option>
+                    </select>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Email (e.g. example@gmail.com)" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password (min-8, max-16)" required minlength="8" maxlength="16">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password*" required>
+                </div>
+                <button type="submit">Register</button>
+                <p class="already">Already have an account? <a href="login.html">Login</a>.</p>
+            </form>
+        </div>
+    </div>
+    <!-- Your JavaScript code -->
+    <script src="script.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        function submitForm() {
+            // Gather form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmpassword: document.getElementById('confirmpassword').value,
+                // Add other form fields
+            };
+
+            // Initialize Google Sheets API
+            gapi.load('client', initClient);
+
+            function initClient() {
+                gapi.client.init({
+                    apiKey: 'AIzaSyBLu7ItfrF63_rI-jqwI_WcrYrPFaVcVSg', // Replace with your API key
+                    clientId: '471998875185-agrm3oh9qvtdajg3kd0f1fa3cirpivsv.apps.googleusercontent.com', // Replace with your client ID
+                    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+                    scope: 'https://www.googleapis.com/auth/spreadsheets',
+                }).then(() => {
+                    // Call the function to append data to Google Sheet
+                    appendDataToSheet(formData);
+                });
+            }
+
+            function appendDataToSheet(data) {
+                gapi.client.sheets.spreadsheets.values.append({
+                    spreadsheetId: '1m4GlEgnhSXKnkQLPoSbSM1-ESs0RO12K4G2fT4w-Utc', // Replace with your spreadsheet ID
+                    range: 'swag_invest_database', // Replace with the name of your sheet
+                    valueInputOption: 'RAW',
+                    insertDataOption: 'INSERT_ROWS',
+                    resource: {
+                        values: [Object.values(data)],
+                    },
+                }).then((response) => {
+                    console.log('Data appended: ', response);
+                }, (error) => {
+                    console.error('Error appending data: ', error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

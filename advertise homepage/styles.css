@@ -1,0 +1,194 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: url('img/forex.jpg') center/cover no-repeat;
+    position: relative; /* Add this to establish a positioning context */
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1e3799, #0c2461);
+    opacity: 0.7; /* Adjust the opacity as needed */
+    z-index: -1;
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+/* Rest of your CSS code */
+
+.container .headline{
+    font-size: 25px;
+}
+.container .refer{
+    font-size: 30px;
+    color:#4cd137;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 55px;
+}
+
+.header {
+    padding: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 45px;
+}
+
+.info {
+    margin-top: 20px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 35px;
+    text-align: center;
+}
+
+.blue {
+    background:linear-gradient(#00a8ff, #0097e6);
+}
+
+.green {
+    background:linear-gradient(#48dbfb, #0abde3);
+}
+
+.purple {
+    background:linear-gradient(#70a1ff, #1e90ff);
+}
+/* ... (previous CSS code) */
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 35px;
+    text-align: center;
+    margin-right: 80px; /* Add margin between boxes */
+}
+/* ... (previous CSS code) */
+
+.box {
+    position: relative;
+    flex: 250;
+    padding: 40px;
+    border-radius: 35px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.box.blue p{
+    font-size: 60px;
+    margin: 0px;
+    font-weight:lighter;
+}
+.box.green p{
+    font-size: 60px;
+    margin: 0px;
+    font-weight:lighter;
+}
+.box.purple p{
+    font-size: 60px;
+    margin: 50px;
+    font-weight:lighter;
+}
+
+.box.green {
+    box-shadow: 0 0 20px #0abde3; /* Default blue glow */
+}
+
+.box.blue {
+    box-shadow: 0 0 20px #0097e6; /* Default green glow */
+}
+
+.box.purple {
+    box-shadow: 0 0 20px #1e90ff; /* Default purple glow */
+}
+
+/* ... (remaining CSS code) */
+
+
+.box:last-child {
+    margin-right: 0px; /* Remove margin from the last box */
+}
+
+/* Your existing CSS code */
+
+.footer {
+    background-color: #130f40;
+    padding: 25px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+}
+.footer p {
+    margin: 0;
+}
+.auth-buttons {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.auth-button {
+    background-color: transparent;
+    border: none;
+    color: #ff4757;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 20px;
+    border-radius: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.auth-button:hover {
+    box-shadow: 0 0 10px #ff4757;
+    background-color: #ff4757;
+    transition:background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    color: #fff;
+}
+
+
+.auth-separator {
+    margin: 0 5px;
+    color: #ff3c00e5;
+}
+
+/* Rest of your CSS code */
+

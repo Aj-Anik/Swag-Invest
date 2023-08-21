@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1e3799, #0c2461);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.registration-container {
+    background: linear-gradient(to bottom, #ED4C67, #B53471);
+    padding: 50px; /* Increased padding */
+    border-radius: 35px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 70%; /* Increased width */
+    max-width: 600px; /* Added max-width */
+}
+
+.registration-form {
+    padding: 20px;
+}
+
+h2 {
+    color: #fff;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap; /* Wrap fields to new line if they exceed width */
+    justify-content: space-between; /* Create space between fields */
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group select {
+    flex: 1;
+    padding: 10px;
+    margin: 15px; /* Added margin for spacing between inputs */
+    border: none;
+    border-radius: 5px;
+}
+
+.input-group select {
+    background: transparent;
+    color: #fff;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    background: rgb(255, 255, 255);
+    color: #000000;
+}
+
+button {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #52fc85;
+    box-shadow:0px, 0px, 10px #00ffaa ;
+}
+
+.already {
+    color: #fff;
+}
+.already a {
+    color: #4cd137;
+    text-decoration: none;
+}
